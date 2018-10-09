@@ -15,6 +15,7 @@ import beans.BuyDetailDataBeans;
 import beans.ItemDataBeans;
 import dao.BuyDAO;
 import dao.BuyDetailDAO;
+import dao.BuyHistoryDAO;
 
 /**
  * 購入完了画面
@@ -38,6 +39,8 @@ public class BuyResult extends HttpServlet {
 
 			// 購入情報を登録
 			int buyId = BuyDAO.insertBuy(bdb);
+
+
 			// 購入詳細情報を購入情報IDに紐づけして登録
 			for (ItemDataBeans cartInItem : cart) {
 				BuyDetailDataBeans bddb = new BuyDetailDataBeans();
@@ -54,6 +57,11 @@ public class BuyResult extends HttpServlet {
 			// 購入アイテム情報
 			ArrayList<ItemDataBeans> buyIDBList = BuyDetailDAO.getItemDataBeansListByBuyId(buyId);
 			request.setAttribute("buyIDBList", buyIDBList);
+
+			//購入履歴ページ
+			ArrayList<ItemDataBeans> buyIDBList2 = BuyHistoryDAO.getBuyHistory(buyId);
+			request.setAttribute("buyIDBList2", buyIDBList2);
+
 
 			// 購入完了ページ
 			request.getRequestDispatcher(EcHelper.BUY_RESULT_PAGE).forward(request, response);

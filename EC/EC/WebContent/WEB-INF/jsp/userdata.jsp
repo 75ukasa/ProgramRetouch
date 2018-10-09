@@ -62,19 +62,16 @@
 								</tr>
 							</thead>
 							<tbody>
+							<c:forEach var="BuyDataList" items="${BuyDataList}" >
+                   <tr>
 
 								<tr>
-									<td class="center"><a href="UserBuyHistoryDetail?buy_id=1" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
-									<td class="center">1234年56月78日90時12分</td>
-									<td class="center">サンプル配送料金</td>
-									<td class="center"><123456789円円</td>
+									<td class="center"><a href="UserBuyHistoryDetail?id=${BuyDataList.id}" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
+									<td class="center">${BuyDataList.formatDate}</td>
+									<td class="center">${BuyDataList.deliveryMethodName}</td>
+									<td class="center">${BuyDataList.totalPrice}円</td>
 								</tr>
-								<tr>
-									<td class="center"><a href="UserBuyHistoryDetail?buy_id=2" class="btn-floating btn waves-effect waves-light "> <i class="material-icons">details</i></a></td>
-									<td class="center">1234年56月78日90時12分</td>
-									<td class="center">サンプル配送料金</td>
-									<td class="center"><123456789円円</td>
-								</tr>
+								</c:forEach>
 
 							</tbody>
 						</table>
