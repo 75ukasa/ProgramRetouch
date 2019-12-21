@@ -34,8 +34,7 @@ public class UserData extends HttpServlet {
 			int userId = (int) session.getAttribute("userId");
 
 
-			BuyDAO buyDao = new BuyDAO();
-			List<BuyDataBeans> buyDataList = buyDao.buydata(userId);
+			List<BuyDataBeans> buyDataList = BuyDAO.buydata(userId);
 
 			request.setAttribute("BuyDataList",buyDataList);
 
@@ -52,8 +51,7 @@ public class UserData extends HttpServlet {
 			request.setAttribute("validationMessage", validationMessage);
 			request.setAttribute("udb", udb);
 
-			request.getRequestDispatcher(EcHelper.USER_DATA_PAGE).forward(request, response);
-
+			request.getRequestDispatcher(EcHelper. USER_DATA_PAGE).forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 			session.setAttribute("errorMessage", e.toString());

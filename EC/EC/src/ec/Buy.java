@@ -21,6 +21,7 @@ import dao.DeliveryMethodDAO;
  *
  */
 @WebServlet("/Buy")
+
 public class Buy extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

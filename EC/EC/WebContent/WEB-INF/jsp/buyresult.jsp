@@ -67,7 +67,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="buyIDB" items="${buyIDBList}">
+								<c:forEach var="buyIDB" items="${buyIDBList}" >
 									<tr>
 										<td class="center">${buyIDB.name}</td>
 										<td class="center">${buyIDB.price}円</td>

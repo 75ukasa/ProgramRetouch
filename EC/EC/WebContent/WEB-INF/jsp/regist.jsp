@@ -14,10 +14,10 @@
 	<div class="container">
 		<div class="row center">
 			<h5 class=" col s12 light">新規登録</h5>
+		</div>
 			<c:if test="${validationMessage != null}">
 				<P class="red-text">${validationMessage}</P>
 			</c:if>
-		</div>
 		<div class="row">
 			<div class="section"></div>
 			<div class="col s6 offset-s3">
